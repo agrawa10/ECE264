@@ -43,15 +43,9 @@
 
    If the array has no elements (length is 0), then the function returns 0.
 */
-int addElement(int * array, int length) {
-  int sum = 0;
-  int i;
-
-  for(i = 0; i < length; i++) {
-    sum += array[i];
-  }
-  
-  return sum;
+int addElement(int * array, int length)
+{
+    return 0;
 }
 /*
  * =================================================================
@@ -75,17 +69,9 @@ int addElement(int * array, int length) {
    This function should return 2.
    0 is not considered to be a negative number.
 */
-int countNegative(int * array, int length) {
-  int count = 0;
-  int i;
-
-  for(i = 0; i < length; i++) {
-    if (array[i] < 0) {
-      count += 1;
-    }
-  }    
-  
-  return count;
+int countNegative(int * array, int length)
+{
+    return 0;
 }
 /*
  * =================================================================
@@ -131,16 +117,7 @@ int countNegative(int * array, int length) {
    This function should return 0
 
 */
-int isIncreasing(int * array, int length) {
-  int result = 1;
-  int i;
-
-  for(i = 0; i < (length - 1); i++) {
-    if(array[i] > array[i + 1]) {
-      result = 0;
-      break;
-    }
-  }
-
-  return result;
+int isIncreasing(int * array, int length)
+{
+    return 0;
 }
