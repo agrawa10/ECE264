@@ -60,16 +60,31 @@
  */
 
 int *readIntegers(const char *filename, int *numberOfIntegers) {
-  FILE *file
-  file = fopen(*filename, "r");
+  FILE *fptr;
+  fptr = fopen(filename, "r"); //fopen allocates memory
 
-  if (!file) {
+  if (fptr == NULL) {
     return NULL;
   }
   
-  else {
-    return NULL;
+  int temp;
+  *numberOfIntegers = 0;
+  while (fscanf(fptr, "%d", &temp) == 1) { 
+    //fscanf returns number of integers read or EOF
+    (*numberOfIntegers)++;
   }
+  
+  int *arr;
+  arr = malloc(sizeof(int) * *numberOfIntegers);
+  
+  fseek(fptr, 0, SEEK_SET);
+  
+  int ind = 0;
+  while (fscanf(fptr, "%d", &arr[ind++]) == 1) {
+  }
+
+  fclose(fptr); //otherwise memory leak
+  return arr;
 }
 
 /**
