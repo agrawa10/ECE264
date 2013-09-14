@@ -124,9 +124,34 @@ int *readIntegers(const char *filename, int *numberOfIntegers) {
  * sort.
  *
  */
-void sort(int * arr, int length)
-{
-    
+void sort(int * arr, int length) {
+  if (length < 2) {
+    return;
+  }
+
+  int pivot = length / 2;
+  int* left = arr;
+  int* right = arr + length - 1;
+
+  while (left <= right) {
+    while (*left < pivot) {
+      left++;
+    }
+    while (*right > pivot) {
+      right--;
+    }
+    if (left <= right) {
+      //swap arr[left] and arr[right]
+      int temp = *left;
+      *left = *right;
+      *right = temp;
+
+      left++;
+      right--;
+    }
+  }
+  sort(arr, right - arr + 1);
+  sort(left, arr + length - left);
 }
 
 /**
