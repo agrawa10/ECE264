@@ -145,7 +145,7 @@ void sorthelper(int *arr, int first, int last) {
       if (low < high) {
         temp = arr[low];
         arr[low] = arr[high];
-        arr[low] = temp;
+        arr[high] = temp;
       }
     }
  
