@@ -129,17 +129,18 @@ void sorthelper(int *arr, int first, int last) {
   int high;
   int low;
   int temp;
+  
   if (first < last) {
     pivot = first;
     low = first;
     high = last;
-
+  
     while (low < high) {
       while(arr[low] <= arr[pivot] && low <= last) {
-        ++low;
+        low++;
       }		
-      while ((arr[high] < arr[pivot]) && (high >= first)) {
-        --high;
+      while ((arr[high] > arr[pivot]) && (high >= first)) {
+        high--;
       }
 
       if (low < high) {
@@ -148,13 +149,13 @@ void sorthelper(int *arr, int first, int last) {
         arr[high] = temp;
       }
     }
- 
-  temp = arr[high];
-  arr[high] = arr[pivot];
-  arr[pivot] = temp;
+   
+    temp = arr[high];
+    arr[high] = arr[pivot];
+    arr[pivot] = temp;
   
-  sorthelper(arr, first, high - 1);
-  sorthelper(arr, high + 1, last);
+    sorthelper(arr, first, high - 1);
+    sorthelper(arr, high + 1, last);
   }
 }
 
@@ -221,8 +222,7 @@ int binaryhelper(int *arr, int low, int high, int key) {
   else {
     return binaryhelper(arr, low, high - 1, key);
   }
-}
-  
+}  
 
 int search(int * arr, int length, int key) {   
   return binaryhelper(arr, 0, length - 1, key);
