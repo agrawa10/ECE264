@@ -124,34 +124,42 @@ int *readIntegers(const char *filename, int *numberOfIntegers) {
  * sort.
  *
  */
+void sorthelper(int *arr, int first, int last) {
+  int pivot;
+  int high;
+  int low;
+  int temp;
+  if (first < last) {
+    pivot = first;
+    low = first;
+    high = last;
+
+    while (low < high) {
+      while(arr[low] <= arr[pivot] && low <= last) {
+        ++low;
+      }		
+      while ((arr[high] < arr[pivot]) && (high >= first)) {
+        --high;
+      }
+
+      if (low < high) {
+        temp = arr[low];
+        arr[low] = arr[high];
+        arr[low] = temp;
+      }
+    }
+ 
+  temp = arr[high];
+  arr[high] = arr[pivot];
+  arr[pivot] = temp;
+  
+  sorthelper(arr, first, high - 1);
+  sorthelper(arr, high + 1, last);
+  }
+}
+
 void sort(int * arr, int length) {
-  if (length < 2) {
-    return;
-  }
-
-  int pivot = length / 2;
-  int* left = arr;
-  int* right = arr + length - 1;
-
-  while (left <= right) {
-    while (*left < pivot) {
-      left++;
-    }
-    while (*right > pivot) {
-      right--;
-    }
-    if (left <= right) {
-      //swap arr[left] and arr[right]
-      int temp = *left;
-      *left = *right;
-      *right = temp;
-
-      left++;
-      right--;
-    }
-  }
-  sort(arr, right - arr + 1);
-  sort(left, arr + length - left);
+  return sorthelper(arr, 0, length - 1);
 }
 
 /**
@@ -198,9 +206,24 @@ void sort(int * arr, int length) {
  * }
  * return -1;
  */
-int search(int * arr, int length, int key)
-{
+int binaryhelper(int *arr, int low, int high, int key) {
+  if (low > high) {
     return -1;
+  }
+  
+  int between = (low + high) / 2;
+  if (arr[between] == key) {
+    return between;
+  }
+  else if (arr[between] < key) {
+    return binaryhelper(arr, between + 1, high, key);
+  }
+  else {
+    return binaryhelper(arr, low, high - 1, key);
+  }
 }
+  
 
-
+int search(int * arr, int length, int key) {   
+  return binaryhelper(arr, 0, length - 1, key);
+}
