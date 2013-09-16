@@ -30,9 +30,11 @@
  * = 3
  */
 int checkPrime(int number) {
-  if (number == 2) {
+  if (number == 1)
+    return 0;
+  
+  else if (number == 2)
     return 1;
-  }
 
   int divisor = 2;
   int check;
@@ -44,14 +46,40 @@ int checkPrime(int number) {
   return check;
 }
 
-void partition(int n, int value, int index, int arr[]) {
+void partition(int n, int value, int index, int arr[], int mode) {
   int i, j, remValue;
   arr[index] = value;
   remValue = (n - value);
 
-  for (i = 2; i <= remValue; i++) {
-    if (checkPrime(i))
-      partition(remValue, i, index + 1, arr);
+  for (i = 1; i <= remValue; i++) {
+    switch (mode) { 
+      case 1:
+        partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 2:
+        if (i > value)
+          partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 3:
+        if (i < value)
+          partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 4:
+        if (i % 2)
+          partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 5:
+        if (!(i % 2))
+          partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 6:
+        if ((i - value) % 2)
+          partition(remValue, i, index + 1, arr, mode);
+        break;
+      case 7:
+        if (checkPrime(i))
+          partition(remValue, i, index + 1, arr, mode);
+    }
   }
 
   if (remValue == 0) {
@@ -72,7 +100,7 @@ void partitionAll(int value) {
   int arr[value - 1];
   
   for (i = 1; i <= value; i++) {
-    partition(value, i, 0, arr);
+    partition(value, i, 0, arr, 1);
   }
   return;
 }
@@ -103,7 +131,7 @@ void partitionIncreasing(int value)
   int arr[value - 1];
   
   for (i = 1; i <= value; i++) {
-    partition(value, i, 0, arr);
+    partition(value, i, 0, arr, 2);
   }
   return;
 }
@@ -134,7 +162,7 @@ void partitionDecreasing(int value)
   int i;
   int arr[value - 1];
   for (i = 1; i <= value; i++) {
-    partition(value, i, 0, arr);
+    partition(value, i, 0, arr, 3);
   }
   return;
 }
@@ -162,7 +190,7 @@ void partitionOdd(int value) {
   int arr[value - 1];
   for (i = 1; i <= value; i++) {
     if (i % 2)
-      partition(value, i, 0, arr);
+      partition(value, i, 0, arr, 4);
   }
   return;
 }
@@ -192,7 +220,7 @@ void partitionEven(int value) {
   int arr[value - 1];
   for (i = 1; i <= value; i++) {
     if (!(i % 2))
-      partition(value, i, 0, arr);
+      partition(value, i, 0, arr, 5);
   }
   return;
 }
@@ -221,7 +249,7 @@ void partitionOddAndEven(int value) {
   int arr[value - 1];
   for (i = 1; i <= value; i++) {
     if (i % 2)
-      partition(value, i, 0, arr);
+      partition(value, i, 0, arr, 6);
   }
   return;
 }
@@ -248,7 +276,7 @@ void partitionPrime(int value) {
   int arr[value - 1];
   for (i = 2; i <= value; i++) {
     if (checkPrime(i))
-      partition(value, i, 0, arr);
+      partition(value, i, 0, arr, 7);
       //printf("%d", i);
   }
   return;
