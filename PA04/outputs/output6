@@ -1,0 +1,32 @@
+input file format:
+<method> <value to partition>
+
+methods:
+1. All
+2. Increasing
+3. Decreasing
+4. Odd
+5. Even
+6. OddAndEven
+7. Prime
+
+current method: 6
+current value: 9
+Start Partitioning...
+partitionOddAndEven 9
+= 1 + 2 + 2 + 2 + 2
+= 1 + 2 + 2 + 4
+= 1 + 2 + 4 + 2
+= 1 + 2 + 6
+= 1 + 4 + 2 + 2
+= 1 + 4 + 4
+= 1 + 6 + 2
+= 1 + 8
+= 3 + 2 + 2 + 2
+= 3 + 2 + 4
+= 3 + 4 + 2
+= 3 + 6
+= 5 + 2 + 2
+= 5 + 4
+= 7 + 2
+= 9
