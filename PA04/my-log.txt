@@ -1,0 +1,85 @@
+commit 752274808836a77b7f38178f79113dabdc557381
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Mon Sep 16 14:25:45 2013 -0400
+
+    PA04 completed and checked
+
+commit 0e0bc8abf42da3f12954d347c618b91d94ef6c2e
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Mon Sep 16 13:35:19 2013 -0400
+
+    PA04 partitioning completed
+
+commit df251d538a5deda833201a85964a0d8306df1052
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Mon Sep 16 13:33:25 2013 -0400
+
+    GIT log file name corrected
+
+commit efed0c3eedc54070afdddf48fce5a2c6d14086d3
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Sat Sep 14 07:16:51 2013 -0400
+
+    PA03 working (with valgrind errors)
+
+commit 4ebde2c1ede6d27bda2db9075a943c9ba3f7a011
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Fri Sep 13 23:57:35 2013 -0400
+
+    PA03
+
+commit d37f5aef74036fcf89665d3c2121bfa996902b55
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Fri Sep 13 23:50:08 2013 -0400
+
+    Pushed GIT log
+
+commit b64a8f988c632aee3e9d99642ef87d1cf831c686
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Fri Sep 13 23:49:00 2013 -0400
+
+    PA03 Completed
+
+commit 0587c27d47154ac9d6e903b87824d02ff533389f
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Fri Sep 13 20:41:13 2013 -0400
+
+    Quick sort completed
+
+commit c58728a36ab29d3b97e4b4d8e3a64606e78db275
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Fri Sep 13 19:35:17 2013 -0400
+
+    file i/o complete
+
+commit ec86581ef0fb47d180941a79502dca9a806b30a6
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Sat Sep 7 13:21:51 2013 -0400
+
+    PA03 file i/o begun
+
+commit 8d4701997d9d3dcb8215ebcef1f1aa7460de06ab
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Mon Sep 2 17:21:07 2013 -0400
+
+    PA02 completed and checked
+
+commit f7c607bf86bc65864c7f506f96e6193182d63dd2
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Thu Aug 29 17:55:54 2013 -0400
+
+    Revert "Updated test file, rewrote answer01.c"
+    
+    This reverts commit 3feee6ba513a7367383fdc34cbcd155f4c638b60.
+
+commit 3feee6ba513a7367383fdc34cbcd155f4c638b60
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Tue Aug 27 14:14:00 2013 -0400
+
+    Updated test file, rewrote answer01.c
+
+commit cd5d776f0fd8fa0a306085587a75a648e7d211c8
+Author: Shubham Agrawal <agrawa10@ecelinux42.ecn.purdue.edu>
+Date:   Sat Aug 24 18:23:27 2013 -0400
+
+    PA01 Completed and Checked
