@@ -97,11 +97,12 @@ void partition(int n, int value, int index, int arr[], int mode) {
 void partitionAll(int value) {
   printf("partitionAll %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   
   for (i = 1; i <= value; i++) {
     partition(value, i, 0, arr, 1);
   }
+  free(arr);
   return;
 }
 /*
@@ -128,11 +129,12 @@ void partitionIncreasing(int value)
 {
   printf("partitionIncreasing %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   
   for (i = 1; i <= value; i++) {
     partition(value, i, 0, arr, 2);
   }
+  free(arr);
   return;
 }
 
@@ -160,10 +162,11 @@ void partitionDecreasing(int value)
 {
   printf("partitionDecreasing %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   for (i = 1; i <= value; i++) {
     partition(value, i, 0, arr, 3);
   }
+  free(arr);
   return;
 }
 
@@ -187,11 +190,12 @@ void partitionDecreasing(int value)
 void partitionOdd(int value) {
   printf("partitionOdd %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   for (i = 1; i <= value; i++) {
     if (i % 2)
       partition(value, i, 0, arr, 4);
   }
+  free(arr);
   return;
 }
 
@@ -217,11 +221,12 @@ void partitionOdd(int value) {
 void partitionEven(int value) {
   printf("partitionEven %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   for (i = 1; i <= value; i++) {
     if (!(i % 2))
       partition(value, i, 0, arr, 5);
   }
+  free(arr);
   return;
 }
 
@@ -246,11 +251,12 @@ void partitionEven(int value) {
 void partitionOddAndEven(int value) {
   printf("partitionOddAndEven %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   for (i = 1; i <= value; i++) {
     if (i % 2)
       partition(value, i, 0, arr, 6);
   }
+  free(arr);
   return;
 }
 
@@ -273,11 +279,12 @@ void partitionOddAndEven(int value) {
 void partitionPrime(int value) {
   printf("partitionPrime %d\n", value);
   int i;
-  int arr[value - 1];
+  int *arr = malloc(sizeof(int) * value);
   for (i = 2; i <= value; i++) {
     if (checkPrime(i))
       partition(value, i, 0, arr, 7);
       //printf("%d", i);
   }
+  free(arr);
   return;
 }
