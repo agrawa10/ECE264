@@ -1,0 +1,107 @@
+==10104== Memcheck, a memory error detector
+==10104== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==10104== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==10104== Command: ./pa05 s inputs/strinput8 outputs/stroutput8
+==10104== Parent PID: 10100
+==10104== 
+--10104-- 
+--10104-- Valgrind options:
+--10104--    --tool=memcheck
+--10104--    --leak-check=full
+--10104--    --verbose
+--10104--    --log-file=outputs/strmemoutput8
+--10104-- Contents of /proc/version:
+--10104--   Linux version 2.6.32-358.18.1.el6.x86_64 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Aug 2 17:04:38 EDT 2013
+--10104-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--10104-- Page sizes: currently 4096, max supported 4096
+--10104-- Valgrind library directory: /usr/lib64/valgrind
+--10104-- Reading syms from /home/shay/a/agrawa10/ECE264/ECE264/PA05/pa05
+--10104-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--10104--    object doesn't have a dynamic symbol table
+--10104-- Reading syms from /lib64/ld-2.12.so
+--10104-- Scheduler: using generic scheduler lock implementation.
+--10104-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==10104== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10104-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==10104== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10104-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==10104== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10104-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==10104== 
+==10104== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10104== don't want to do, unless you know exactly what you're doing,
+==10104== or are doing some strange experiment):
+==10104==   /usr/lib64/valgrind/../../bin/vgdb --pid=10104 ...command...
+==10104== 
+==10104== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10104==   /path/to/gdb ./pa05
+==10104== and then give GDB the following command
+==10104==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=10104
+==10104== --pid is optional if only one valgrind process is running
+==10104== 
+--10104-- REDIR: 0x334fc17520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--10104-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--10104-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--10104-- REDIR: 0x334fc17390 (index) redirected to 0x4a07bf0 (index)
+--10104-- REDIR: 0x334fc17410 (strcmp) redirected to 0x4a08530 (strcmp)
+--10104-- Reading syms from /lib64/libc-2.12.so
+--10104-- REDIR: 0x3350084ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10104-- REDIR: 0x3350087180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10104-- REDIR: 0x3350082e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--10104-- REDIR: 0x335007f8d0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--10104-- REDIR: 0x3350127ac0 (__strcmp_sse42) redirected to 0x4a08490 (strcmp)
+--10104-- REDIR: 0x335007a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--10104-- REDIR: 0x3350083540 (memchr) redirected to 0x4a085d0 (memchr)
+--10104-- REDIR: 0x3350089860 (memcpy) redirected to 0x4a08b20 (memcpy)
+==10104== Invalid read of size 8
+==10104==    at 0x4009D7: readString (answer05.c:181)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104==  Address 0x4c383d0 is 0 bytes after a block of size 128 alloc'd
+==10104==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==10104==    by 0x400973: readString (answer05.c:173)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104== 
+--10104-- REDIR: 0x335007b710 (free) redirected to 0x4a06369 (free)
+--10104-- REDIR: 0x335008ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+--10104-- REDIR: 0x33500846f0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--10104-- REDIR: 0x3350081350 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+==10104== 
+==10104== HEAP SUMMARY:
+==10104==     in use at exit: 1,928 bytes in 18 blocks
+==10104==   total heap usage: 20 allocs, 2 frees, 2,624 bytes allocated
+==10104== 
+==10104== Searching for pointers to 18 not-freed blocks
+==10104== Checked 64,928 bytes
+==10104== 
+==10104== 80 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==10104==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==10104==    by 0x400926: readString (answer05.c:165)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104== 
+==10104== 1,280 bytes in 16 blocks are definitely lost in loss record 3 of 3
+==10104==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==10104==    by 0x40099A: readString (answer05.c:175)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104== 
+==10104== LEAK SUMMARY:
+==10104==    definitely lost: 1,360 bytes in 17 blocks
+==10104==    indirectly lost: 0 bytes in 0 blocks
+==10104==      possibly lost: 0 bytes in 0 blocks
+==10104==    still reachable: 568 bytes in 1 blocks
+==10104==         suppressed: 0 bytes in 0 blocks
+==10104== Reachable blocks (those to which a pointer was found) are not shown.
+==10104== To see them, rerun with: --leak-check=full --show-reachable=yes
+==10104== 
+==10104== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)
+==10104== 
+==10104== 1 errors in context 1 of 3:
+==10104== Invalid read of size 8
+==10104==    at 0x4009D7: readString (answer05.c:181)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104==  Address 0x4c383d0 is 0 bytes after a block of size 128 alloc'd
+==10104==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==10104==    by 0x400973: readString (answer05.c:173)
+==10104==    by 0x400E5E: main (pa05.c:36)
+==10104== 
+--10104-- 
+--10104-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--10104-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==10104== 
+==10104== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)
