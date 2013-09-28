@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "pa05.h"
-#define MAXIMUM_LENGTH 80
+#define MAXIMUM_LENGTH 180
 
 /*
  * Read a file of integers.
@@ -162,26 +162,31 @@ char * * readString(char * filename, int * numString) {
     return NULL;
   }
   
-  char *temp = malloc(sizeof(char) * MAXIMUM_LENGTH);
+  char temp[MAXIMUM_LENGTH];
   *numString = 0;
+
   while (fgets(temp, MAXIMUM_LENGTH, fp) != NULL) {
     (*numString)++;
   }
   
   char **arr;
-  int i;
+  int i = 0;
   arr = malloc(sizeof(char *) * *numString);
-  for (i = 0; i < *numString; i++) {
-    arr[i] = malloc(sizeof(char) * MAXIMUM_LENGTH);
-  }
+  //for (i = 0; i < *numString; i++) {
+    //arr[i] = malloc(sizeof(char) * MAXIMUM_LENGTH);
+  //}
   
   fseek(fp, 0, SEEK_SET);
   
-  int j = 0;
-  while (fgets(*(arr + j++), MAXIMUM_LENGTH, fp) != NULL) {
+  //int j = 0;
+  while (fgets(temp, MAXIMUM_LENGTH, fp) != NULL) {
+    arr[i] = malloc(sizeof(char) * (strlen(temp) + 1));
+    strcpy(arr[i], temp);
+    i++;
   }
   
   fclose(fp);
+  //free(temp);
   return arr;
 }
 
@@ -209,6 +214,10 @@ void printString(char * * arrString, int numString) {
   int row;
   for (row = 0; row < numString; row++) {
     printf("%s", arrString[row]);
+    int len = strlen(arrString[row]);
+    if (len == 0 || arrString[row][len - 1] != '\n') {
+      printf("\n");
+    }
   }
 }
 
@@ -230,6 +239,10 @@ void freeInteger(int * arrInteger, int numInteger) {
  * Hint: an array of strings is a two-dimensional array of characters
  */
 void freeString(char * * arrString, int numString) {
+  int i;
+  for (i = 0; i < numString; i++) {
+    free(arrString[i]);
+  }
   free(arrString);
   arrString = NULL;
 }
@@ -287,14 +300,20 @@ int saveInteger(char * filename, int * arrInteger, int numInteger) {
 
 int saveString(char * filename, char * * arrString, int numString) {
   FILE *fp = fopen(filename, "w");
-  int i;
   if (fp == NULL) {
     return 0;
   }
   
+  int i;
   for (i = 0; i < numString; i++) {
-    fprintf(fp, "%s", *(arrString + i));
+    fprintf(fp, "%s", arrString[i]);
+    
+    int len = strlen(arrString[i]);
+    if (len == 0 || arrString[i][len - 1] != '\n') {
+      fprintf(fp, "\n");
+    }
   }
+  fclose(fp);
   return 1;
 }
 
