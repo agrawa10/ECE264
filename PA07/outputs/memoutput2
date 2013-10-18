@@ -1,0 +1,97 @@
+==16877== Memcheck, a memory error detector
+==16877== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==16877== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==16877== Command: ./a.out inputs/input2_A inputs/input2_B
+==16877== Parent PID: 16631
+==16877== 
+--16877-- 
+--16877-- Valgrind options:
+--16877--    --tool=memcheck
+--16877--    --leak-check=full
+--16877--    --verbose
+--16877--    --log-file=outputs/memoutput2
+--16877-- Contents of /proc/version:
+--16877--   Linux version 2.6.32-358.18.1.el6.x86_64 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Aug 2 17:04:38 EDT 2013
+--16877-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--16877-- Page sizes: currently 4096, max supported 4096
+--16877-- Valgrind library directory: /usr/lib64/valgrind
+--16877-- Reading syms from /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out
+--16877-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--16877--    object doesn't have a dynamic symbol table
+--16877-- Reading syms from /lib64/ld-2.12.so
+--16877-- Scheduler: using generic scheduler lock implementation.
+--16877-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==16877== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-16877-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==16877== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-16877-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==16877== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-16877-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==16877== 
+==16877== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==16877== don't want to do, unless you know exactly what you're doing,
+==16877== or are doing some strange experiment):
+==16877==   /usr/lib64/valgrind/../../bin/vgdb --pid=16877 ...command...
+==16877== 
+==16877== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==16877==   /path/to/gdb ./a.out
+==16877== and then give GDB the following command
+==16877==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=16877
+==16877== --pid is optional if only one valgrind process is running
+==16877== 
+--16877-- REDIR: 0x353ac17520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--16877-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--16877-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--16877-- REDIR: 0x353ac17390 (index) redirected to 0x4a07bf0 (index)
+--16877-- REDIR: 0x353ac17410 (strcmp) redirected to 0x4a08530 (strcmp)
+--16877-- Reading syms from /lib64/libc-2.12.so
+--16877-- REDIR: 0x353b084ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--16877-- REDIR: 0x353b087180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--16877-- REDIR: 0x353b082e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--16877-- REDIR: 0x353b07a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--16877-- REDIR: 0x353b07b710 (free) redirected to 0x4a06369 (free)
+--16877-- REDIR: 0x353b081350 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+--16877-- REDIR: 0x353b0846f0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--16877-- REDIR: 0x353b08ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+==16877== 
+==16877== HEAP SUMMARY:
+==16877==     in use at exit: 144 bytes in 9 blocks
+==16877==   total heap usage: 27 allocs, 18 frees, 1,520 bytes allocated
+==16877== 
+==16877== Searching for pointers to 9 not-freed blocks
+==16877== Checked 64,600 bytes
+==16877== 
+==16877== 48 (16 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 9
+==16877==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==16877==    by 0x40088F: List_create (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400AC8: List_copy (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400B10: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400FD1: main (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877== 
+==16877== 48 (16 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 9
+==16877==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==16877==    by 0x40088F: List_create (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400AC8: List_copy (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400B10: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400BBB: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400FD1: main (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877== 
+==16877== 48 (16 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 9 of 9
+==16877==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==16877==    by 0x40088F: List_create (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400AC8: List_copy (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400B10: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400BBB: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400BBB: List_merge (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877==    by 0x400FD1: main (in /home/shay/a/agrawa10/ECE264/ECE264/PA07/a.out)
+==16877== 
+==16877== LEAK SUMMARY:
+==16877==    definitely lost: 48 bytes in 3 blocks
+==16877==    indirectly lost: 96 bytes in 6 blocks
+==16877==      possibly lost: 0 bytes in 0 blocks
+==16877==    still reachable: 0 bytes in 0 blocks
+==16877==         suppressed: 0 bytes in 0 blocks
+==16877== 
+==16877== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)
+--16877-- 
+--16877-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--16877-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==16877== 
+==16877== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 6 from 6)
