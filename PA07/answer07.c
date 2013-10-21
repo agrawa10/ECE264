@@ -237,10 +237,10 @@ Node * List_copy(Node * head) {
  * need to make a clone of "head1".
  */
 Node * List_merge(Node * head1, Node * head2) {
-  if (head2 != NULL) {
-    Node *p = List_copy(head1);
-    Node *q = NULL;
+  Node *p = List_copy(head1);
+  Node *q = NULL;
 
+  if (head2 != NULL) {
     if ((q = List_search(p, head2 -> index))) { //Search of current head2 index in p successful
       int sum = q -> value + head2 -> value;
       if (sum == 0)
@@ -253,14 +253,12 @@ Node * List_merge(Node * head1, Node * head2) {
     
     q = p; //save address of p for freeing later
     p = List_merge(p, head2 -> next);
-    
-    if(head2 -> next != NULL)   
-      List_destroy(q);
+    List_destroy(q);
 
     return p;
   }
   
   else
-    return head1;
+    return p;
 }
 
