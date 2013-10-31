@@ -298,23 +298,29 @@ SparseNode * SparseArray_copy(SparseNode * array) {
  */
 
 SparseNode * SparseArray_merge(SparseNode * array_1, SparseNode * array_2) {
-  if (array_1 == NULL)
-    return array_2;
-  if (array_2 == NULL)
-    return array_1;
-  
   SparseNode* p = SparseArray_copy(array_1);
   SparseNode* q = NULL;
   
-  q = SparseArray_getNode(array_2, p -> index);
-  if (q != NULL) {
-    if (p -> value + q -> value == 0) {}
-      //p = SparseArray_remove(p, q -> index); 
-    else
-      p -> value += q -> value;
-  }
+  if (array_2 != NULL) {
+    if ((q = SparseArray_getNode(p, array_2 -> index))) { //Search of current array_2 index in p successful
+      int sum = q -> value + array_2 -> value;
+      if (sum == 0)
+        p = SparseArray_remove(p, q -> index); 
+      else
+        q -> value = sum;
+    } 
+    else //If search unsuccessful, insert node pointed by array_2 into p
+      p = SparseArray_insert(p, array_2 -> index, array_2 -> value);
+  
+    SparseNode* freeOne = p; //save address of p for freeing later
+    p = SparseArray_merge(p, array_2 -> left);
+    SparseArray_destroy(freeOne);
 
-  p -> left = SparseArray_merge(p -> left, array_2);
-  p -> right = SparseArray_merge(p -> right, array_2);
-  return p;
+    SparseNode* freeTwo = p;
+    p = SparseArray_merge(p, array_2 -> right);
+    SparseArray_destroy(freeTwo);
+    return p;
+  }
+  else
+    return p;
 }
