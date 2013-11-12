@@ -1,0 +1,75 @@
+==20258== Memcheck, a memory error detector
+==20258== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20258== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==20258== Command: ./pa09 inputs/bit_header_inputs/poetry2_bit outputs/output_bit04
+==20258== Parent PID: 20254
+==20258== 
+--20258-- 
+--20258-- Valgrind options:
+--20258--    --tool=memcheck
+--20258--    --leak-check=full
+--20258--    --verbose
+--20258--    --log-file=outputs/memoutput_bit04
+--20258-- Contents of /proc/version:
+--20258--   Linux version 2.6.32-358.23.2.el6.x86_64 (mockbuild@x86-022.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Sat Sep 14 05:32:37 EDT 2013
+--20258-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--20258-- Page sizes: currently 4096, max supported 4096
+--20258-- Valgrind library directory: /usr/lib64/valgrind
+--20258-- Reading syms from /home/shay/a/agrawa10/ECE264/ECE264/PA09/pa09
+--20258-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--20258--    object doesn't have a dynamic symbol table
+--20258-- Reading syms from /lib64/ld-2.12.so
+--20258-- Scheduler: using generic scheduler lock implementation.
+--20258-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==20258== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20258-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20258== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20258-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20258== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20258-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20258== 
+==20258== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20258== don't want to do, unless you know exactly what you're doing,
+==20258== or are doing some strange experiment):
+==20258==   /usr/lib64/valgrind/../../bin/vgdb --pid=20258 ...command...
+==20258== 
+==20258== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20258==   /path/to/gdb ./pa09
+==20258== and then give GDB the following command
+==20258==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=20258
+==20258== --pid is optional if only one valgrind process is running
+==20258== 
+--20258-- REDIR: 0x353ac17520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--20258-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--20258-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--20258-- REDIR: 0x353ac17390 (index) redirected to 0x4a07bf0 (index)
+--20258-- REDIR: 0x353ac17410 (strcmp) redirected to 0x4a08530 (strcmp)
+--20258-- Reading syms from /lib64/libc-2.12.so
+--20258-- REDIR: 0x353b084ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20258-- REDIR: 0x353b087180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20258-- REDIR: 0x353b082e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--20258-- REDIR: 0x353b07a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--20258-- REDIR: 0x353b08e6b0 (strstr) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20258-- REDIR: 0x353b129cc0 (__strstr_sse42) redirected to 0x4a0a160 (strstr)
+--20258-- REDIR: 0x353b07b710 (free) redirected to 0x4a06369 (free)
+--20258-- REDIR: 0x353b08ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+==20258== 
+==20258== HEAP SUMMARY:
+==20258==     in use at exit: 1,136 bytes in 2 blocks
+==20258==   total heap usage: 140 allocs, 138 frees, 3,896 bytes allocated
+==20258== 
+==20258== Searching for pointers to 2 not-freed blocks
+==20258== Checked 1,113,816 bytes
+==20258== 
+==20258== LEAK SUMMARY:
+==20258==    definitely lost: 0 bytes in 0 blocks
+==20258==    indirectly lost: 0 bytes in 0 blocks
+==20258==      possibly lost: 0 bytes in 0 blocks
+==20258==    still reachable: 1,136 bytes in 2 blocks
+==20258==         suppressed: 0 bytes in 0 blocks
+==20258== Reachable blocks (those to which a pointer was found) are not shown.
+==20258== To see them, rerun with: --leak-check=full --show-reachable=yes
+==20258== 
+==20258== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--20258-- 
+--20258-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--20258-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==20258== 
+==20258== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

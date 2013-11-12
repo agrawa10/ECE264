@@ -4,27 +4,26 @@
 #include "tree.h"
 
 /* DO NOT MODIFY THIS FUNCTION!!! */
-void Huff_postOrderPrint(TreeNode *tree)
-{
+void Huff_postOrderPrint(TreeNode *tree, FILE* fptr) {
     // Base case: empty subtree
     if (tree == NULL) {
-		return;
+      return;
     }
 
     // Recursive case: post-order traversal
 
     // Visit left
-    printf("Left\n");
-    Huff_postOrderPrint(tree->left);
-	printf("Back\n");
+    fprintf(fptr, "Left\n");
+    Huff_postOrderPrint(tree->left, fptr);
+    fprintf(fptr, "Back\n");
+    
     // Visit right
-    printf("Right\n");
-    Huff_postOrderPrint(tree->right);
-	printf("Back\n");
+    fprintf(fptr, "Right\n");
+    Huff_postOrderPrint(tree->right, fptr);
+    fprintf(fptr, "Back\n");
+    
     // Visit node itself (only if leaf)
     if (tree->left == NULL && tree->right == NULL) {
-		printf("Leaf: %c\n", tree->value);
+      fprintf(fptr, "Leaf: %c\n", tree->value);
     }
-    
-
 }

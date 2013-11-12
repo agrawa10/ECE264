@@ -17,6 +17,9 @@ HuffNode* HuffNode_specificBuild(HuffNode* a, HuffNode* b);
 HuffNode* HuffTree_build(FILE* fptr);
 Stack* stack_push(Stack* stack, HuffNode* p);
 Stack* stack_pop(Stack* stack);
+HuffNode* HuffTree_binBuild(FILE* fptr);
+void Huff_postOrderPrint(HuffNode *tree, FILE* fptr);
+void HuffTree_destroy(HuffNode* tree);
 
 #endif
 

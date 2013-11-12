@@ -7,7 +7,7 @@ typedef struct leaf {
     struct leaf *right;
 } TreeNode;
 
-void Huff_postOrderPrint(TreeNode *tree);
+void Huff_postOrderPrint(TreeNode *tree, FILE* fptr);
 
 #endif /* tree.h */
 

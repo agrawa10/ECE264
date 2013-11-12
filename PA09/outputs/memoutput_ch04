@@ -1,0 +1,75 @@
+==20195== Memcheck, a memory error detector
+==20195== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20195== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==20195== Command: ./pa09 inputs/ch_header_inputs/testcase4_ch outputs/output_ch04
+==20195== Parent PID: 20194
+==20195== 
+--20195-- 
+--20195-- Valgrind options:
+--20195--    --tool=memcheck
+--20195--    --leak-check=full
+--20195--    --verbose
+--20195--    --log-file=outputs/memoutput_ch04
+--20195-- Contents of /proc/version:
+--20195--   Linux version 2.6.32-358.23.2.el6.x86_64 (mockbuild@x86-022.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Sat Sep 14 05:32:37 EDT 2013
+--20195-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--20195-- Page sizes: currently 4096, max supported 4096
+--20195-- Valgrind library directory: /usr/lib64/valgrind
+--20195-- Reading syms from /home/shay/a/agrawa10/ECE264/ECE264/PA09/pa09
+--20195-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--20195--    object doesn't have a dynamic symbol table
+--20195-- Reading syms from /lib64/ld-2.12.so
+--20195-- Scheduler: using generic scheduler lock implementation.
+--20195-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==20195== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20195-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20195== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20195-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20195== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20195-by-agrawa10-on-ecelinux42.ecn.purdue.edu
+==20195== 
+==20195== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20195== don't want to do, unless you know exactly what you're doing,
+==20195== or are doing some strange experiment):
+==20195==   /usr/lib64/valgrind/../../bin/vgdb --pid=20195 ...command...
+==20195== 
+==20195== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20195==   /path/to/gdb ./pa09
+==20195== and then give GDB the following command
+==20195==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=20195
+==20195== --pid is optional if only one valgrind process is running
+==20195== 
+--20195-- REDIR: 0x353ac17520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--20195-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--20195-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--20195-- REDIR: 0x353ac17390 (index) redirected to 0x4a07bf0 (index)
+--20195-- REDIR: 0x353ac17410 (strcmp) redirected to 0x4a08530 (strcmp)
+--20195-- Reading syms from /lib64/libc-2.12.so
+--20195-- REDIR: 0x353b084ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20195-- REDIR: 0x353b087180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20195-- REDIR: 0x353b082e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--20195-- REDIR: 0x353b07a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--20195-- REDIR: 0x353b08e6b0 (strstr) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20195-- REDIR: 0x353b129cc0 (__strstr_sse42) redirected to 0x4a0a160 (strstr)
+--20195-- REDIR: 0x353b07b710 (free) redirected to 0x4a06369 (free)
+--20195-- REDIR: 0x353b08ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+==20195== 
+==20195== HEAP SUMMARY:
+==20195==     in use at exit: 1,136 bytes in 2 blocks
+==20195==   total heap usage: 68 allocs, 66 frees, 2,456 bytes allocated
+==20195== 
+==20195== Searching for pointers to 2 not-freed blocks
+==20195== Checked 1,113,752 bytes
+==20195== 
+==20195== LEAK SUMMARY:
+==20195==    definitely lost: 0 bytes in 0 blocks
+==20195==    indirectly lost: 0 bytes in 0 blocks
+==20195==      possibly lost: 0 bytes in 0 blocks
+==20195==    still reachable: 1,136 bytes in 2 blocks
+==20195==         suppressed: 0 bytes in 0 blocks
+==20195== Reachable blocks (those to which a pointer was found) are not shown.
+==20195== To see them, rerun with: --leak-check=full --show-reachable=yes
+==20195== 
+==20195== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--20195-- 
+--20195-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--20195-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==20195== 
+==20195== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
